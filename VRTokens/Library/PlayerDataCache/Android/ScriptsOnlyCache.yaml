@@ -271,9 +271,9 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 6498}
     - Class: 114
-      Script: {instanceID: 21752}
+      Script: {instanceID: 21772}
     - Class: 114
-      Script: {instanceID: 21766}
+      Script: {instanceID: 21786}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -3208,4 +3208,4 @@ ScriptsOnlyBuild:
   platform: 13
   scenePathNames:
   - Assets/Scenes/TokenVis.unity
-  playerPath: C:/Users/reren/Documents/Projects/VRTokens/VRTokens/OculusGrab.apk
+  playerPath: C:/Users/reren/Documents/Projects/VRTokens/VRTokens/VRTokens.apk
