@@ -1,19 +1,26 @@
-/************************************************************************************
-Copyright : Copyright (c) Facebook Technologies, LLC and its affiliates. All rights reserved.
-
-Your use of this SDK or tool is subject to the Oculus SDK License Agreement, available at
-https://developer.oculus.com/licenses/oculussdk/
-
-Unless required by applicable law or agreed to in writing, the Utilities SDK distributed
-under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF
-ANY KIND, either express or implied. See the License for the specific language governing
-permissions and limitations under the License.
-************************************************************************************/
+/*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ * All rights reserved.
+ *
+ * Licensed under the Oculus SDK License Agreement (the "License");
+ * you may not use the Oculus SDK except in compliance with the License,
+ * which is provided at the time of installation or download, or which
+ * otherwise accompanies this software in either electronic or hard copy form.
+ *
+ * You may obtain a copy of the License at
+ *
+ * https://developer.oculus.com/licenses/oculussdk/
+ *
+ * Unless required by applicable law or agreed to in writing, the Oculus SDK
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
-using UnityEngine.Serialization;
 
 namespace Oculus.Interaction.Input
 {
@@ -27,15 +34,11 @@ namespace Oculus.Interaction.Input
         private OVRPlugin.Skeleton2 _skeleton;
         private bool _capsulesAreActive;
         protected bool _started;
-        public PhysicMaterial physicalMaterial;
+
         protected virtual void Awake()
         {
             Assert.IsNotNull(_handVisual);
-            /*
-             * following added by Wei
-             */
-            physicalMaterial = Resources.Load<PhysicMaterial>("New Physic Material");
-    }
+        }
 
         protected virtual void Start()
         {
@@ -60,14 +63,8 @@ namespace Oculus.Interaction.Input
 
                 capsule.BoneIndex = _skeleton.BoneCapsules[i].BoneIndex;
 
-                /*added by Wei*/
-                GameObject temp_CollisionPart = new GameObject((boneTransform.name).ToString() + "_CapsulePhysics");
-                capsule.CapsuleRigidbody = temp_CollisionPart.AddComponent<Rigidbody>();
-                /*
-                 * the original version of two lines above is:
-                 * capsule.CapsuleRigidbody = new GameObject((boneTransform.name).ToString() + "_CapsuleRigidbody")
+                capsule.CapsuleRigidbody = new GameObject((boneTransform.name).ToString() + "_CapsuleRigidbody")
                     .AddComponent<Rigidbody>();
-                 */
                 capsule.CapsuleRigidbody.mass = 1.0f;
                 capsule.CapsuleRigidbody.isKinematic = true;
                 capsule.CapsuleRigidbody.useGravity = false;
@@ -79,14 +76,8 @@ namespace Oculus.Interaction.Input
                 rbGO.transform.rotation = boneTransform.rotation;
                 rbGO.SetActive(false);
 
-                //added by Wei
-                capsule.CapsuleCollider = temp_CollisionPart.AddComponent<CapsuleCollider>();
-                capsule.CapsuleCollider.material = physicalMaterial;
-                /*
-                 * the original version of the line above is:
-                 * capsule.CapsuleCollider = new GameObject((boneTransform.name).ToString() + "_CapsuleCollider")
-                    .AddComponent<Collider>();
-                 */
+                capsule.CapsuleCollider = new GameObject((boneTransform.name).ToString() + "_CapsuleCollider")
+                    .AddComponent<CapsuleCollider>();
                 capsule.CapsuleCollider.isTrigger = false;
 
                 var p0 = _skeleton.BoneCapsules[i].StartPoint.FromFlippedXVector3f();

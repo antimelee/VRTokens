@@ -9,11 +9,21 @@ EditorBuildSettings:
     path: Assets/Scenes/TokenVis.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 0
-    path: Assets/Oculus/Interaction/Samples/Scenes/ComplexGrab.unity
-    guid: b4db51bf4876fde4ebaca05af639db73
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/Oculus/Interaction/Samples/Scenes/BasicPoke.unity
-    guid: e6661efa421761b4299803adcd8c1c9a
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: Assets/Scenes/HandGrabPoseTool.unity
+    guid: 8d12702353d5fd74ba260506070081fd
+  - enabled: 0
+    path: Assets/Scenes/HandGrab 1.unity
+    guid: c83e1017b60199744bf3c9fab3292876
+  - enabled: 0
+    path: Assets/Oculus/Interaction/Samples/Scenes/Examples/RayExamples.unity
+    guid: 1b2d3f90c0f50b94cb910c66c773d00d
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 12921aaa68137344cb97f80ecd6b4657, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 71e74e1d10a58f84087cbb35c027c98b, type: 2}
+    com.unity.xr.openxr.settings4: {fileID: 11400000, guid: fa028bbb9814d1141b5e28f20d15227e, type: 2}
